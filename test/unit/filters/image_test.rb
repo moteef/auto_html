@@ -53,8 +53,8 @@ class ImageTest < Minitest::Test
   end
 
   def test_transform9
-    result = auto_html('http://upload.wikimedia.org/wikipedia/commons/thumb/9/98/SPietro_al_Monte_basilica.JPG/220px-SPietro_al_Monte_basilica.JPG') { image({:alt => nil}) }
-    assert_equal '<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/98/SPietro_al_Monte_basilica.JPG/220px-SPietro_al_Monte_basilica.JPG" alt=""/>', result
+    result = auto_html('http://upload.wikimedia.org/wikipedia/commons/thumb/9/98/SPietro_al_Monte_basilica.JPG/220px-SPietro_al_Monte_basilica.JPG\n Do you like?') { image({:alt => nil}) }
+    assert_equal '<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/98/SPietro_al_Monte_basilica.JPG/220px-SPietro_al_Monte_basilica.JPG" alt=""/>\n Do you like?', result
   end
 
   def test_https
