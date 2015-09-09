@@ -10,8 +10,6 @@ AutoHtml.add_filter(:image).with({:alt => ''}) do |text, options|
   r = Redcarpet::Markdown.new(NoParagraphRenderer)
   alt = options[:alt]
   options[:proxy] ||= ""
-  # original /(?<!src=")https?:\/\/.+?\.(jpg|jpeg|bmp|gif|png)(\?\S+)?/i
-  #          /(?<!src=")https?:\/\/.+?\.(jpg|jpeg|bmp|gif|png)(\?\S+|\/\S+)?/i
   text.gsub(/(?<!src=")https?:\/\/.+?\.(jpg|jpeg|bmp|gif|png)(\?\S+|\/\S+.(jpg|jpeg|bmp|gif|png))?/i) do |match|
     r.render("![#{alt}](#{options[:proxy]}#{match})")
   end
