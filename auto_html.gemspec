@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.homepage = 'http://github.com/dejan/auto_html'
 
   gem.add_dependency('rinku', '~> 1.7')
-  gem.add_dependency('redcarpet', '~> 3.1')
+  gem.add_dependency('redcarpet', '~> 3.3')
 
   gem.add_development_dependency('minitest', '~> 5.4')
 
@@ -18,4 +18,3 @@ Gem::Specification.new do |gem|
   gem.files = Dir['Rakefile', '{bin,lib,man,test,spec}/**/*',
                   'README*', 'LICENSE'] & `git ls-files -z`.split("\0")
 end
-
