@@ -52,6 +52,11 @@ class ImageTest < Minitest::Test
     assert_equal 'Which do you prefer, this one <img src="http://www.lockhartfineart.com/images/Rio_Grande_Frost.JPG" alt=""/>, or this one <img src="http://rors.org/images/rails.png" alt=""/>?', result
   end
 
+  def test_transform9
+    result = auto_html('http://upload.wikimedia.org/wikipedia/commons/thumb/9/98/SPietro_al_Monte_basilica.JPG/220px-SPietro_al_Monte_basilica.JPG\n Do you like?') { image({:alt => nil}) }
+    assert_equal '<img src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/98/SPietro_al_Monte_basilica.JPG/220px-SPietro_al_Monte_basilica.JPG" alt=""/>\n Do you like?', result
+  end
+
   def test_https
     result = auto_html('https://img.skitch.com/20100910-1wrbg5749xe29ya5t3s85bnaiy.png') { image({:alt => nil}) }
     assert_equal '<img src="https://img.skitch.com/20100910-1wrbg5749xe29ya5t3s85bnaiy.png" alt=""/>', result
