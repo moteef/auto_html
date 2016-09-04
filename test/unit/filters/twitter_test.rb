@@ -1,7 +1,7 @@
 require File.expand_path('../../unit_test_helper', __FILE__)
 require 'fakeweb'
 
-class TwitterTest < Minitest::Test
+class TwitterTest < MiniTest::Unit::TestCase
 
   def setup
     response = %Q(

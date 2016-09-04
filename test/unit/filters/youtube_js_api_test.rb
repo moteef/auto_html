@@ -1,6 +1,6 @@
 require File.expand_path('../../unit_test_helper', __FILE__)
 
-class YouTubeJsApiTest < Minitest::Test
+class YouTubeJsApiTest < MiniTest::Unit::TestCase
   
   def test_transform
     result = auto_html('http://www.youtube.com/watch?v=BwNrmYRiX_o') { youtube_js_api }

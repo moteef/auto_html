@@ -1,6 +1,6 @@
 require File.expand_path('../../unit_test_helper', __FILE__)
 
-class SanitizeTest < Minitest::Test
+class SanitizeTest < MiniTest::Unit::TestCase
 
   def test_trasform
     result = auto_html("<script>alert(0)</script>") { sanitize }

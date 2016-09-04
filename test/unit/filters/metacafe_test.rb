@@ -1,6 +1,6 @@
 require File.expand_path('../../unit_test_helper', __FILE__)
 
-class MetaCafeTest < Minitest::Test
+class MetaCafeTest < MiniTest::Unit::TestCase
 
   def test_transform
     result = auto_html("http://www.metacafe.com/watch/5440707/exclusive_tron_evolution_dev_diary_the_art_design") { metacafe }

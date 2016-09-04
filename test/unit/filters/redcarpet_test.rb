@@ -1,6 +1,6 @@
 require File.expand_path('../../unit_test_helper', __FILE__)
 
-class RedcarpetTest < Minitest::Test
+class RedcarpetTest < MiniTest::Unit::TestCase
 
   def test_transform_strong
     result = auto_html("This is **my** text.") { redcarpet }

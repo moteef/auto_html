@@ -1,6 +1,6 @@
 require File.expand_path('../../unit_test_helper', __FILE__)
 
-class VimeoTest < Minitest::Test
+class VimeoTest < MiniTest::Unit::TestCase
 
   def test_transform_url_with_www
     result = auto_html('http://www.vimeo.com/3300155') { vimeo }
