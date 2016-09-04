@@ -16,11 +16,14 @@ matrix:
   exclude:
   - rvm: 1.9.3
     gemfile: gemfiles/rails_5_0.gemfile
-    gemfile: gemfiles/rails_edge.gemfile
+  - rvm: 1.9.3
+    gemfile: gemfiles/rails_5_0.gemfile
   - rvm: 2.0.0
     gemfile: gemfiles/rails_5_0.gemfile
+  - rvm: 2.0.0
     gemfile: gemfiles/rails_edge.gemfile
   - rvm: 2.1.5
-    gemfile: gemfiles/rails_5_0.gemfile
+    gemfile: gemfiles/rails_edge.gemfile
+  - rvm: 2.1.5
     gemfile: gemfiles/rails_edge.gemfile
 script: "bundle exec rake test"
