@@ -61,7 +61,7 @@ GIT
 PATH
   remote: ../
   specs:
-    auto_html (1.6.4)
+    auto_html (1.6.5)
       redcarpet (~> 3.3)
       rinku (~> 1.7)
 

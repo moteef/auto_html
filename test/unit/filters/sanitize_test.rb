@@ -1,10 +1,14 @@
 require File.expand_path('../../unit_test_helper', __FILE__)
 
 class SanitizeTest < MiniTest::Unit::TestCase
-
   def test_trasform
     result = auto_html("<script>alert(0)</script>") { sanitize }
-    assert_equal "", result
+
+    if (Rails::VERSION::MAJOR == 4 && Rails::VERSION::MINOR >= 2) || Rails::VERSION::MAJOR > 4
+      assert_equal "alert(0)", result
+    else
+      assert_equal "", result
+    end
   end
 
   def test_trasform2
@@ -23,18 +27,18 @@ class SanitizeTest < MiniTest::Unit::TestCase
   end
 
   def test_trasform5
-    result = auto_html("<a rel='nofollow'>test</div>") { sanitize :tags => %w(a), :attributes => %w(href)}
-    if Rails::VERSION::MAJOR == 4 and Rails::VERSION::MINOR >= 2
+    result = auto_html("<a rel='nofollow'>test</div>") { sanitize :tags => %w(a), :attributes => %w(href) }
+
+    if (Rails::VERSION::MAJOR == 4 && Rails::VERSION::MINOR >= 2) || Rails::VERSION::MAJOR > 4
       assert_equal "<a>test</a>", result
     else
-      assert_equal "<a>test", result 
+      assert_equal "<a>test", result
     end
     #
     # from Rails doc:
     #
-    #   Please note that sanitizing user-provided text does not 
+    #   Please note that sanitizing user-provided text does not
     #   guarantee that the resulting markup is valid.
     #
   end
-
 end
