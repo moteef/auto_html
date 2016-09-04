@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.email    = 'desimic@gmail.com'
   gem.homepage = 'http://github.com/dejan/auto_html'
 
-  gem.add_dependency "rails", '>= 3.2'
+  gem.add_dependency 'rails', '>= 3.2'
   gem.add_dependency 'rinku', '~> 1.7'
   gem.add_dependency 'redcarpet', '~> 3.3'
 
