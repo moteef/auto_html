@@ -9,10 +9,10 @@ Gem::Specification.new do |gem|
   gem.email    = 'desimic@gmail.com'
   gem.homepage = 'http://github.com/dejan/auto_html'
 
-  gem.add_dependency('rinku', '~> 1.7')
-  gem.add_dependency('redcarpet', '~> 3.3')
+  gem.add_dependency 'rinku', '~> 1.7'
+  gem.add_dependency 'redcarpet', '~> 3.3'
 
-  gem.add_development_dependency('minitest', '~> 5.4')
+  gem.add_development_dependency 'appraisal'
 
   # ensure the gem is built out of versioned files
   gem.files = Dir['Rakefile', '{bin,lib,man,test,spec}/**/*',
