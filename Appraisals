@@ -18,6 +18,6 @@ appraise 'rails_5_0' do
   gem 'rails', '~> 5.0.0'
 end
 
-appraise 'rails_master' do
+appraise 'rails_edge' do
   gem 'rails', { github: 'rails/rails' }
 end
