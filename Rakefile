@@ -1,3 +1,7 @@
+require 'rubygems'
+require 'bundler'
+Bundler.setup :default, :development
+
 require 'rake/testtask'
 
 desc 'Default: run tests'
