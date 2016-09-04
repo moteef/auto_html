@@ -10,3 +10,16 @@ gemfile:
   - gemfiles/4.0.gemfile
   - gemfiles/4.1.gemfile
   - gemfiles/4.2.gemfile
+  - gemfiles/5.0.gemfile
+  - gemfiles/master.gemfile
+matrix:
+  exclude:
+    - rvm: 1.9.3
+      gemfile: gemfiles/rails_5_0.gemfile
+      gemfile: gemfiles/rails_master.gemfile
+    - rvm: 2.0.0
+      gemfile: gemfiles/rails_5_0.gemfile
+      gemfile: gemfiles/rails_master.gemfile
+    - rvm: 2.1.5
+      gemfile: gemfiles/rails_5_0.gemfile
+      gemfile: gemfiles/rails_master.gemfile
