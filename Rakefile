@@ -6,4 +6,5 @@ task :default => :test
 desc 'Test AutoHtml'
 Rake::TestTask.new(:test) do |t|
   t.pattern = 'test/**/*_test.rb'
+  t.warning = false
 end
