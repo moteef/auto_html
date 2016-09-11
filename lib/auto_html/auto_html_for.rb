@@ -19,15 +19,19 @@ module AutoHtmlFor
       include AutoHtmlFor::InstanceMethods
 
       if defined?(ActiveRecord) == "constant"
-        return unless ActiveRecord::Base.connection.table_exists? self.table_name
+        if Rails::VERSION::MAJOR >= 5
+          return unless ActiveRecord::Base.connection.data_source_exists? self.table_name
+        else
+          return unless ActiveRecord::Base.connection.table_exists? self.table_name
+        end
       end
 
       suffix =  AutoHtmlFor.auto_html_for_options[:htmlized_attribute_suffix]
       auto_html_for_columns = [raw_attrs].flatten.map { |a| "#{a}#{suffix}" }
-      
+
       # Needed for Mongoid
       column_names = self.respond_to?(:column_names) ? self.column_names : fields.keys
-      
+
       missing_cache_columns =  auto_html_for_columns - column_names
       missing_cache_columns.each do |missing_cache_column|
         raw_attr = missing_cache_column.gsub(suffix, '')
@@ -36,7 +40,7 @@ module AutoHtmlFor
           auto_html(val, &proc)
         end
       end
-      
+
       cache_columns = auto_html_for_columns - missing_cache_columns
       cache_columns.each do |cache_column|
         raw_attr = cache_column.gsub(suffix, '')
@@ -46,7 +50,7 @@ module AutoHtmlFor
           self.send("#{cache_column}=", result)
           val
         end
-        
+
         define_method(cache_column) do
           result = self[cache_column]
           result.respond_to?(:html_safe) ? result.html_safe : result
@@ -60,5 +64,3 @@ module AutoHtmlFor
     include AutoHtml
   end
 end
-
-
