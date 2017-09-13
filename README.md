@@ -9,7 +9,7 @@ auto_html is a Rails extension for transforming URLs to appropriate resource (im
 
 Specify the gem in Gemfile of the project
 
-    gem "auto_html"
+    gem 'auto_html', git: 'https://github.com/dgilperez/auto_html'
 
 
 ## Example usage
@@ -66,7 +66,7 @@ AutoHtml is highly customizable, and you can easily create new filters that will
 
 ## Bundled filters
 
-For filter list and options they support check: <http://github.com/dejan/auto_html/tree/master/lib/auto_html/filters>
+For filter list and options they support check: <https://github.com/dgilperez/auto_html/tree/master/lib/auto_html/filters>
 
 
 ## Non-ActiveRecord models
