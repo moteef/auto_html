@@ -19,10 +19,14 @@ module AutoHtmlFor
       include AutoHtmlFor::InstanceMethods
 
       if defined?(ActiveRecord) == "constant"
-        if Rails::VERSION::MAJOR >= 5
-          return unless ActiveRecord::Base.connection.data_source_exists? self.table_name
-        else
-          return unless ActiveRecord::Base.connection.table_exists? self.table_name
+        begin
+          if Rails::VERSION::MAJOR >= 5
+            return unless ActiveRecord::Base.connection.data_source_exists? self.table_name
+          else
+            return unless ActiveRecord::Base.connection.table_exists? self.table_name
+          end
+        rescue ActiveRecord::NoDatabaseError
+          return
         end
       end
 
